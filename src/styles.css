@@ -146,8 +146,8 @@ input[type="password"] {
   width: 200px;
   height: 300px;
   position: absolute;
-  right: auto;
-  z-index: 1;
+  left: -100px;
+
   background-color: #81d8d0;
   border-radius: 0 0 5px 5px;
 }
@@ -163,7 +163,8 @@ input[type="password"] {
   background-color: rgb(200, 200, 200);
 }
 #shoppingCart {
-  padding: 10px 10px 0px 10px;
+  /*padding: 10px 10px 0px 10px;*/
+  position: relative;
   display: none;
 }
 #shoppingCart .closeShoppingCart {
@@ -242,6 +243,9 @@ input[type="password"] {
   ul {
     display: none;
     margin: 0px;
+  }
+  #cart {
+    left: 100px;
   }
   ul.show {
     display: block;
