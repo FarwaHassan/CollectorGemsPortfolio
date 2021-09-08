@@ -170,6 +170,26 @@ input[type="password"] {
 #shoppingCart .closeShoppingCart {
   background-image: url(/src/images/close.png);
 }
+#slideShow {
+  float: left;
+  width: 90px;
+  margin-right: 30px;
+  margin-left: 10px;
+  border-right: white 1px dotted;
+}
+#slideShow img {
+  display: inline-block;
+  margin: 0 0 10px 0;
+  border: 1px solid rgb(0, 0, 0);
+}
+#photo {
+  margin-left: 150px;
+  position: relative;
+}
+#photo img {
+  position: absolute;
+}
+
 .socials {
   padding: 40px;
 }
