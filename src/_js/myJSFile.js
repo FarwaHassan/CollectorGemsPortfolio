@@ -8,11 +8,8 @@ window.onload=function(){
            hamburgerButton.addEventListener("click",toggleButton);   
             
 }
-
-$(document).ready(function()
-{
-
-    
+window.onload = function(){
+    //slideShow using navigation buttons on the left and right    
     //Preload all images in the slideShow
     var preLoadImages = ["/src/images/januaryStone.jpg",
                                         "/src/images/februaryStone.jpg",
@@ -36,26 +33,65 @@ $(document).ready(function()
         imgs[i].src=preLoadImages[i];
         console.log(imgs[i]);
     }
-    
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const totalImages = imgs.length;
+let index = 0;
+
+prev.addEventListener("click", () => {
+  nextImage('next');
+});
+
+next.addEventListener("click", () => {
+  nextImage('prev');
+});
+
+function nextImage(direction) {
+    if (direction == 'next') {
+    index++;
+    if(index == totalImages) {
+      index = 0;
+    }
+  } 
+  else {
+    if(index == 0) {
+      index = totalImages - 1;
+    } 
+    else {
+      index--;
+    }
+  }
+
+  for(let i = 0; i < imgs.length; i++) {
+    imgs[i].classList.remove('main');
+    console.log(imgs[i]);
+  }
+  
+  imgs[index].classList.add('main');
+}//nextImage function ends here
+}//onload ends here
+
+
+
+
+
+$(document).ready(function()
+{
+    //slideShow of banner images using thumbnails on the left
     $("#slideShow a").click(function(evt){
         evt.preventDefault();//stop the link to perform its normal function
         var imgPath=$(this).attr("href");
-        console.log(imgPath);
         var oldImage=$("#photo img");
-        var newImage=$('img src="'+ imgPath+'">');
-        console.log(oldImage);
-        console.log(newImage);
-        /*
-        debugger;
+        var newImage=$('<img src="'+imgPath+'">');
         newImage.hide();
-        $("#photo").prepend('<img src="/src/images/Dematoid.JPG"');
+        $("#photo").prepend(newImage);
         newImage.fadeIn(1000);
         oldImage.fadeOut(1000, function(){
             $(this).remove();
-        });//fadeOut ends here*/
+        });//fadeOut ends here
+        
     });//click ends here
-    $("#slideShow a:first").click();
-
+    $("#slideShow a:first").click();//always load the first image in the slideShow
 
 
     //FAQs toggle effect
